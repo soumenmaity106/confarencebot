@@ -1,0 +1,73 @@
+<%- include('../_layouts/adminheader') %>
+
+<%- include('../_layouts/adminsidebar') %>
+
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+
+    </div>
+    <!--End-breadcrumbs-->
+    <!--Action boxes-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Edit</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="/admin/confarence/edit-confarence/<%= id %>" method="post" class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">Event Track</label>
+                                <div class="controls">
+                                    <input type="text" class="span11" name="event_track" value="<%= event_track %>">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Date</label>
+                                <div class="controls">
+                                    <input type="date" class="span11" name="date" value="<%= date %>">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">From</label>
+                                <div class="controls">
+                                    <input type="time" class="span11" name="from" value="<%= from %>">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">to</label>
+                                <div class="controls">
+                                    <input type="time" class="span11" name="to" value="<%= to %>">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Session Name</label>
+                                <div class="controls">
+                                    <input type="text" class="span11" name="session_name" value="<%= session_name %>">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Speaker Name</label>
+                                <div class="controls">
+                                    <input type="text" class="span11" name="speaker_name" value="<%= speaker_name %>">
+                                </div>
+                            </div>
+
+
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<!--end-main-container-part-->
+<%- include('../_layouts/adminfooter') %>

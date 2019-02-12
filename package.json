@@ -1,0 +1,43 @@
+{
+  "name": "confarencebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "author": "ncrts soumen",
+  "license": "ISC",
+  "engines": {
+    "node": "10.x"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.4.0",
+    "cookie-session": "^2.0.0-beta.3",
+    "crypto": "^1.0.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "fast-csv": "^2.4.1",
+    "fs-extra": "^7.0.0",
+    "json2csv": "^4.3.2",
+    "mkdirp": "^0.5.1",
+    "mongoose": "^5.4.1",
+    "mongoose-validator": "^2.1.0",
+    "multer": "^1.4.1",
+    "nodemailer": "^5.1.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "resize-img": "^1.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

@@ -1,0 +1,98 @@
+<%- include('../_layouts/adminheader') %>
+
+<%- include('../_layouts/adminsidebar') %>
+
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+
+        <div id="breadcrumb"> <a href="/admin/dashboard" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>
+                Home</a><a href="#" class="current">Generic </a> </div>
+    </div>
+    <!--End-breadcrumbs-->
+    <!--Action boxes-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <%- include('./message') %>
+                    </div>
+
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            <h5>Courselist table</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div style="overflow-x:auto;">
+                                <table class="table table-bordered data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Intent Name</th>
+                                            <th>Question</th>
+                                            <th>Answer</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% generics.forEach(function(generic){ %>
+                                        <tr class="gradeX">
+                                            <td>
+                                              <%= generic.intent %>  
+                                            </td>
+                                            <td>
+                                                <p style="width:180px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap;">
+                                                    <%= generic.question %>
+                                                </p>
+                                                <button title="<%= generic.question %>" type="button" class="btn btn-mini resetPrice"
+                                                    data-placement='bottom'>
+                                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <p style="width:180px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap;">
+                                                    <%= generic.answer %>
+                                                </p>
+                                                <button title="<%= generic.answer %>" type="button" class="btn btn-mini resetPrice"
+                                                    data-placement='bottom'>
+                                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                            <td><a class="btn btn-info" href="/admin/generic/edit-generic/<%= generic._id %>"><i
+                                                        class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                                            <td><a onclick="return confirm('Are you sure you want to delete this item?');"
+                                                    class="confirmdeletion btn btn-danger" href="/admin/generic/delete-generic/<%= generic._id %>"><i
+                                                        class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../_layouts/adminfooter') %>
+<script>
+    $('.data-table').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "sDom": '<""l>t<"F"fp>'
+    });
+</script>

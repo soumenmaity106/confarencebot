@@ -1,0 +1,95 @@
+<%- include('../_layouts/adminheader') %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="page-title">Add a User</h2>
+        <a href="/admin/users" class="btn btn-primary">Back to all Users</a>
+        <br><br>
+
+        <form method="post" action="/admin/users/edit-user/<%= id %>" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="">User name</label>
+                <input type="text" class="form-control" value="<%= user_name %>" name="user_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="">User phone</label>
+                <input type="text" class="form-control" value="<%= user_phone %>" name="user_phone" required>
+            </div>
+            <div class="form-group">
+                <label for="">User email</label>
+                <input type="text" class="form-control" value="<%= user_email %>" name="user_email" required>
+            </div>
+            <div class="form-group">
+                <label for="">User company name</label>
+                <input type="text" class="form-control" value="<%= user_company_name %>" name="user_company_name"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for=""> User Technical expertise</label> <br>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox2" value="<%= technical %>">
+                    <%= technical %>
+
+                </label>
+                <!-- <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox2" value="Angular">Angular JS
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox3" value="React">React JS
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox4" value="Vue">Vue JS
+                </label> -->
+            </div>
+
+            <div class="form-group">
+                <label for=""> No of years of exp</label> <br>
+                <label class="radio-inline">
+                    <input type="radio" name="years_of_exp" id="inlineRadio1" value="<%= years_of_exp %>">
+                    <%= years_of_exp %>
+                </label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="">Current Image</label>
+                <p>
+                    <% if (image == "") { %>
+                    <img id="noimage" src="/images/noimage.png" alt="">
+                    <% } else {%>
+                    <img id="noimage" src="/product_images/<%= id %>/<%= image %>" alt="">
+                    <% } %>
+                </p>
+            </div>
+            <div class="form-group">
+                    <label for="">Upload Image</label>
+                    <input type="file" class="form-control" name="image" id="img">
+                    <input type="hidden" name="pimage" value="<%= image %>">  
+            </div>
+
+            <button class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+<script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#img").change(function () {
+        readURL(this);
+    });
+
+</script>
+
+<%- include('../_layouts/adminfooter') %>

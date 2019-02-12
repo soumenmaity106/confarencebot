@@ -1,0 +1,37 @@
+
+<% include _layouts/header %>
+<div id="loginbox">            
+    <form id="loginform" class="form-vertical" action="/admin/login" method="POST">
+        <p><%- messages('messages', locals) %>
+
+            <% if (errors) {%>
+            <% errors.forEach(function(error) { %>
+            <div class="alert alert-danger">
+              <%= error.msg %>
+            </div>
+            <% });%>
+            <% } %></p>
+         <div class="control-group normal_text"> <h3><img src="/img/logo.png" alt="Logo" /></h3></div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" name="username" placeholder="Username" />
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input name="password" type="password" placeholder="Password" />
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <span class="pull-left"><a href="/admin/reset" class="btn btn-info" id="to-recover">Lost password?</a></span>
+            <span class="pull-right"><button type="submit"  class="btn btn-success" > Login</a></span>
+        </div>
+        
+    </form>
+   
+</div>
+<% include _layouts/footer %>

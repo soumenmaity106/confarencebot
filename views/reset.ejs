@@ -1,0 +1,28 @@
+<% include _layouts/header %>
+<div id="loginbox">
+    <form action="/admin/reset" class="form-vertical" method="POST">
+        <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a
+            password.</p>
+            <%- messages('messages', locals) %>
+
+            <% if (errors) {%>
+            <% errors.forEach(function(error) { %>
+            <div class="alert alert-danger">
+              <%= error.msg %>
+            </div>
+            <% });%>
+            <% } %>
+
+        <div class="controls">
+            <div class="main_input_box">
+                <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" name="email" placeholder="E-mail address" />
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <span class="pull-left"><a href="/admin/login" class="btn btn-success" id="to-login">&laquo; Back to login</a></span>
+            <span class="pull-right"><button class="btn btn-info"  type="submit"/>Reecover</button></span>
+        </div>
+    </form>
+</div>
+<% include _layouts/footer %>

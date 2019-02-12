@@ -1,0 +1,89 @@
+<%- include('../_layouts/adminheader') %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="page-title">Add a CSV FILE</h2>
+        <a href="/admin/users" class="btn btn-primary">Back to all Users</a>
+        <br><br>
+
+        <form method="post" action="/admin/users/add-user" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="">User name</label>
+                <input type="text" class="form-control" name="user_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="">User phone</label>
+                <input type="text" class="form-control" name="user_phone" required>
+            </div>
+            <div class="form-group">
+                <label for="">User email</label>
+                <input type="text" class="form-control" name="user_email" required>
+            </div>
+            <div class="form-group">
+                <label for="">User company name</label>
+                <input type="text" class="form-control" name="user_company_name" required>
+            </div>
+            <div class="form-group">
+                <label for=""> User Technical expertise</label> <br>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox1" value="Node">Node Js
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox2" value="Angular">Angular JS
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox3" value="React">React JS
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="technical" id="inlineCheckbox4" value="Vue">Vue JS
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for=""> No of years of exp</label> <br>
+                <label class="radio-inline">
+                    <input type="radio" name="years_of_exp" id="inlineRadio1" value="Beginner"> Beginner
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="years_of_exp" id="inlineRadio2" value="Intermediate"> Intermediate
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="years_of_exp" id="inlineRadio3" value="Senior"> Senior
+                </label>
+                <label class="radio-inline">
+                        <input type="radio" name="years_of_exp" id="inlineRadio3" value="Expert"> Expert
+                    </label>
+            </div>
+
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control" name="image" id="img" required>
+                <img src="#" id="imgPreview" alt="">
+            </div>
+
+            <button class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+<script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#img").change(function () {
+        readURL(this);
+    });
+
+</script>
+
+<%- include('../_layouts/adminfooter') %>

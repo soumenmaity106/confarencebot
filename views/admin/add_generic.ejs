@@ -1,0 +1,43 @@
+<%- include('../_layouts/adminheader') %>
+
+<%- include('../_layouts/adminsidebar') %>
+
+<!--main-container-part-->
+<div id="content">
+  <!--breadcrumbs-->
+  <div id="content-header">
+
+    <div id="breadcrumb"> <a href="/admin/dashboard" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>
+        Home</a> <a href="#" class="tip-bottom" data-original-title="">Courselists</a> <a href="#" class="current">Add
+        New Courselists </a> </div>
+  </div>
+  <!--End-breadcrumbs-->
+  <!--Action boxes-->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+            <h5>Generic Csv File Upload</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <form action="/admin/generic/add-generic" method="POST" class="form-horizontal" enctype="multipart/form-data">
+              <div class="control-group">
+                <label class="control-label">File Upload :</label>
+                <div class="controls">
+                  <input type="file" name="myFile">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-success">Upload</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-main-container-part-->
+<%- include('../_layouts/adminfooter') %>

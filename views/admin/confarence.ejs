@@ -1,0 +1,112 @@
+<%- include('../_layouts/adminheader') %>
+
+<%- include('../_layouts/adminsidebar') %>
+
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+
+    </div>
+    <!--End-breadcrumbs-->
+    <!--Action boxes-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <%- include('./message') %>
+                    </div>
+
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            <h5>Confarences table</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div style="overflow-x:auto;">
+                                <table class="table table-bordered data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Event No</th>
+                                            <th>Event Track</th>
+                                            <th>Date</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Session Name</th>
+                                            <th>Speaker Name</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% confarences.forEach(function(confarence){ %>
+                                        <tr class="gradeX">
+                                            <td>
+                                              <%= confarence.eventno %>  
+                                            </td>
+                                            <td>
+                                             <%= confarence.event_track %>  
+                                            </td>
+                                            <td>
+                                               <%= confarence.date %>   
+                                            </td>
+                                            <td>
+                                               <%= confarence.from %>   
+                                            </td>
+                                            <td>
+                                                    <%= confarence.to %>   
+                                            </td>
+                                            <td>
+                                                <p style="width:180px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap;">
+                                                    <%= confarence.session_name %>
+                                                </p>
+                                                <button title="<%= confarence.session_name %>" type="button" class="btn btn-mini resetPrice"
+                                                    data-placement='bottom'>
+                                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <p style="width:180px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap;">
+                                                    <%= confarence.speaker_name %>
+                                                </p>
+                                                <button title="<%= confarence.speaker_name %>" type="button" class="btn btn-mini resetPrice"
+                                                    data-placement='bottom'>
+                                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                            <td><a class="btn btn-info" href="/admin/confarence/edit-confarence/<%= confarence._id %>"><i
+                                                        class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                                            <td><a onclick="return confirm('Are you sure you want to delete this item?');"
+                                                    class="confirmdeletion btn btn-danger" href="/admin/confarence/delete-confarence/<%= confarence._id %>"><i
+                                                        class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../_layouts/adminfooter') %>
+<script>
+    $('.data-table').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "sDom": '<""l>t<"F"fp>'
+    });
+</script>

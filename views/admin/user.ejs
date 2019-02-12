@@ -1,0 +1,126 @@
+<%- include('../_layouts/adminheader') %>
+
+<%- include('../_layouts/adminsidebar') %>
+
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+
+        <div id="breadcrumb"> <a href="/admin/dashboard" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>
+                Home</a><a href="#" class="current">Center </a> </div>
+    </div>
+    <!--End-breadcrumbs-->
+    <!--Action boxes-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <%- include('./message') %>
+                    </div>
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            <h5>Center table</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div style="overflow-x:auto;">
+                                <table class="table table-bordered data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Program</th>
+                                            <th>Coursename</th>
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
+                                            <th>Address</th>
+                                            <th>Zip Code</th>
+                                            <th>State</th>
+                                            <th>City</th>
+                                            <th>Dob</th>
+                                            <th>Qualifications</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Confirmation Id</th>
+                                            <th>Date</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% registers.forEach(function(register){ %>
+                                        <tr class="gradeX">
+                                            <td>
+                                                <%= register.program %>
+                                            </td>
+                                            <td>
+                                                <%= register.coursename %>
+                                            </td>
+                                            <td>
+                                                <%= register.firstname %>
+                                            </td>
+                                            <td>
+                                                <%= register.lastname %>
+                                            </td>
+                                            <td>
+                                                <%= register.address %>
+                                            </td>
+                                            <td>
+                                                <%= register.zipcode %>
+                                            </td>
+                                            <td>
+                                                <%= register.state %>
+                                            </td>
+                                            <td>
+                                                <%= register.city %>
+                                            </td>
+                                            <td>
+                                                <%= register.dob %>
+                                            </td>
+                                            <td>
+                                                <%= register.qualifications %>
+                                            </td>
+                                            <td>
+                                                <%= register.phone %>
+                                            </td>
+                                            <td>
+                                                <%= register.email %>
+                                            </td>
+                                            <td>
+                                                <%= register.confirmationid %>
+                                            </td>
+                                            <td>
+                                                    <!-- <p style="width:80px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap;">
+                                                       <%= register.date %>
+                                                    </p> -->
+                                                    <button title="<%= register.date %>" type="button" class="btn btn-mini resetPrice"
+                                                        data-placement='bottom'>
+                                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                    </button>
+                                            </td>
+                                            <td><a onclick="return confirm('Are you sure you want to delete this item?');" class="confirmdeletion btn btn-danger" href="/admin/user/delete/<%= register._id %>"><i
+                                                class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../_layouts/adminfooter') %>
+<script>
+    $('.data-table').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "sDom": '<""l>t<"F"fp>'
+    });
+</script>
